@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'website.apps.WebsiteConfig',
+    'website',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -154,3 +155,7 @@ if SHOW_DEBUGGER_TOOLBAR:
 
     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
     INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]
+
+AUTH_USER_MODEL = 'account.User'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
